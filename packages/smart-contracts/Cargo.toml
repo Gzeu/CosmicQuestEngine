@@ -1,0 +1,6 @@
+[workspace]
+members = [
+  "hero-nft",
+  "quest-engine",
+  "marketplace"
+]
