@@ -1,3 +1,7 @@
+import { useGetAccount } from '@multiversx/sdk-dapp/hooks/account/useGetAccount';
+import { signTransactions } from '@multiversx/sdk-dapp/services/transactions/sendTransactions';
+import { completeQuest } from '@cqe/sdk';
+
 const quests = [
   { id: 1, name: 'Slay 3 goblins', xp: 10 },
   { id: 2, name: 'Find the lost ring', xp: 15 },
@@ -5,9 +9,17 @@ const quests = [
 ];
 
 export default function Quests() {
+  const { address } = useGetAccount();
+
   async function complete(id: number) {
-    // TODO: call quest-engine SC
-    alert(`Quest ${id} completat (mock)`);
+    if (!address) return alert('Conectează wallet.');
+    try {
+      const tx = await completeQuest(address, 1, id); // heroId=1 demo
+      const { sessionId } = await signTransactions({ transactions: [tx] });
+      alert(`Tranzacție trimisă. Session: ${sessionId}`);
+    } catch (e: any) {
+      alert(`Eroare: ${e.message}`);
+    }
   }
   return (
     <main className="p-10 space-y-4">
