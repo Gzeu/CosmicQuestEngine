@@ -1,0 +1,18 @@
+{
+  "name": "@cqe/sdk",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -w -p tsconfig.json"
+  },
+  "dependencies": {
+    "@multiversx/sdk-core": "^14.7.0",
+    "@multiversx/sdk-dapp": "^4.9.2",
+    "@multiversx/sdk-network-providers": "^14.7.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

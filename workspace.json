@@ -1,0 +1,18 @@
+{
+  "apps": [
+    {
+      "name": "web",
+      "dir": "apps/web",
+      "scripts": {
+        "dev": "next dev -p 3000",
+        "build": "next build",
+        "start": "next start -p 3000"
+      },
+      "deps": ["packages/sdk"]
+    }
+  ],
+  "packages": [
+    { "name": "sdk", "dir": "packages/sdk" },
+    { "name": "smart-contracts", "dir": "packages/smart-contracts" }
+  ]
+}
